@@ -1,0 +1,113 @@
+/* ======== RESET ======== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* ======== BACKGROUND ======== */
+body {
+  background: radial-gradient(circle, #5e0000, #2a0000, #000);
+  height: 100vh;
+  overflow: hidden;
+  color: white;
+  
+}
+
+/* ======== LAYOUT PRINCIPAL ======== */
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+/* LADO ESQUERDO */
+.menu-left {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 60px;
+  gap: 25px;
+}
+
+/* LADO DIREITO */
+.image-right {
+  width: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-right img {
+  width: 80%;
+  height: auto;
+  filter: drop-shadow(0 0 18px #ff0044);
+}
+
+/* ======== BOTÕES CYBERPUNK ======== */
+.cyber-btn {
+  padding: 18px 40px;
+  width: 250px;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(135deg, #ff005e, #ff3c00);
+  border-radius: 6px;
+  font-family: "Press Start 2P", monospace;
+
+  /* neon glow base */
+  box-shadow: 0 0 10px #ff005e77, 0 0 20px #ff005e55;
+
+  transition: 0.25s ease-out;
+  position: relative;
+}
+
+/* Efeito do gradiente que se move no hover */
+.cyber-btn:hover {
+  transform: scale(1.25);
+  background: linear-gradient(135deg, #ff006a, #ffae00, #ff006a);
+  background-size: 300%;
+  animation: pulse 1s infinite alternate;
+  box-shadow:
+    0 0 20px #ff006a,
+    0 0 40px #ffae00,
+    0 0 60px #ff006a;
+}
+
+/* animação suave */
+@keyframes pulse {
+  0% { background-position: 0%; }
+  100% { background-position: 100%; }
+}
+
+/* ======== HEADER DO TÍTULO ======== */
+.game-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none; /* não atrapalha os cliques no site */
+
+  z-index: 999;
+}
+
+.game-header h1 {
+  font-family: "Press Start 2P", monospace;
+  font-size: 28px;
+  color: #ffebee;
+  text-shadow: 
+    0 0 10px #ff004c,
+    0 0 20px #ff004c,
+    0 0 40px #ff004c;
+}
