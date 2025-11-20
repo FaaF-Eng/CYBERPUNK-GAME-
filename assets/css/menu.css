@@ -41,7 +41,7 @@ body {
 }
 
 .image-right img {
-  width: 80%;
+  width: 60%;
   height: auto;
   filter: drop-shadow(0 0 18px #ff0044);
 }
@@ -110,4 +110,63 @@ body {
     0 0 10px #ff004c,
     0 0 20px #ff004c,
     0 0 40px #ff004c;
+}
+.subtitulo{
+  font-family: "Press Start 2P", monospace;
+  font-size: 18px;
+  color: #ffebee;
+  text-shadow: 
+    0 0 10px #ff004c,
+    0 0 20px #ff004c,
+    0 0 40px #ff004c;
+}
+
+/* ======== ANIMAÇÃO DA IMAGEM ======== */
+
+/* flutuação suave */
+@keyframes floatCharacter {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+/* glitch vermelho */
+@keyframes redGlitch {
+  0%, 95%, 100% {
+    filter: drop-shadow(0 0 18px #ff0044);
+    transform: translate(0,0);
+  }
+  20% {
+    filter: drop-shadow(-2px 0 6px #ff0044);
+    transform: translate(-1px, 0);
+  }
+  22% {
+    filter: drop-shadow(2px 0 6px #ff0044);
+    transform: translate(1px, 0);
+  }
+  24% {
+    filter: drop-shadow(-1px 0 6px #ff0044);
+    transform: translate(-0.5px, 0);
+  }
+}
+
+/* aplica as 2 animações juntas */
+.menu-character {
+  animation: floatCharacter 6s ease-in-out infinite,
+             redGlitch 2.2s infinite;
+}
+
+/* ======== FOOTER ======== */
+.game-footer {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  font-family: "Press Start 2P", monospace;
+  font-size: 12px;
+  color: #ffccd4;
+  text-shadow: 
+      0 0 8px #ff004c,
+      0 0 12px #ff004c;
+  pointer-events: none; /* não interfere nos cliques do menu */
 }

@@ -8,12 +8,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/menu.css">
 </head>
-<body>
+<body class="user-select:none;">
     <!-- HEADER DO TÍTULO -->
-    <header class="game-header">
+    <header class="game-header" style="flex-direction: column; margin-top: 20px;">
         <h1>NEON FIRE</h1>
+        <div class="subtitulo">A CyberPunk Game</div>
     </header>    
-    <div class="background-menu"></div>
+    <br>
+    <div class="background-menu" ></div>
     <div class="container">
         <!-- LADO ESQUERDO: MENU -->
         <div class="menu-left">
@@ -25,9 +27,13 @@
 
         <!-- LADO DIREITO: IMAGEM -->
         <div class="image-right">
-        <img src="https://i.imgur.com/UdZQhzf.jpeg" alt="Game Image">
+            <img class="menu-character" src="assets/img/menu-image.gif" style="width: 600px;" alt="Game Image">
         </div>
     </div>
+
+    <footer class="game-footer">
+        © 2025 Neon Fire — All Rights Reserved Fabio Teixeira
+    </footer>
 </body>
 </html>
 <script>sessionStorage.setItem('menuIn', 'true');</script><!--Script para Menu-->
