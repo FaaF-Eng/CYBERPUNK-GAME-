@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/menu.css">
+    <link rel="icon"  href="assets/img/menu-character.png">
+
 </head>
 <body class="user-select:none;">
     <!-- HEADER DO TÍTULO -->
@@ -34,6 +36,69 @@
     <footer class="game-footer">
         © 2025 Neon Fire — All Rights Reserved Fabio Teixeira
     </footer>
+    <div class="glitch-screen"></div>
+    <audio id="menuAudio" src="assets/audio/play.mp3"></audio>
+    <audio id="hoverAudio" src="assets/audio/play.mp3"></audio>
+
 </body>
+
+
+
+<!--Para o clique-->
+<script>
+    const audio = document.getElementById("menuAudio");
+    
+    // Seleciona apenas NEW GAME e CONTINUE
+    document.querySelectorAll(".cyber-btn").forEach(btn => {
+    
+        if (btn.innerText === "NEW GAME" || btn.innerText === "CONTINUE") {
+            btn.addEventListener("click", () => {
+                
+                // toca audio
+                audio.currentTime = 0;
+                audio.play();
+    
+                // adiciona classe para iniciar animações
+                document.body.classList.add("menu-exit");
+    
+                // tempo para finalizar áudio + animações + glitch
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 2500); // ajuste esse valor conforme a duração do áudio
+            });
+        }
+    });
+</script>
+<!--Para o Hooover-->
+<script>
+    const hoverAudio = document.getElementById("hoverAudio");
+
+// evita spam — impede tocar várias vezes muito rápido
+let hoverCooldown = false;
+
+document.querySelectorAll(".cyber-btn").forEach(btn => {
+    btn.addEventListener("mouseenter", () => {
+
+        if (!hoverCooldown) {
+            hoverAudio.currentTime = 0;
+            hoverAudio.play();
+
+            hoverCooldown = true;
+
+            setTimeout(() => hoverCooldown = false, 80); 
+            // delay mínimo para não engasgar o áudio
+        }
+
+    });
+});
+
+</script>
+
+
+
+
+
+
+
 </html>
 <script>sessionStorage.setItem('menuIn', 'true');</script><!--Script para Menu-->
