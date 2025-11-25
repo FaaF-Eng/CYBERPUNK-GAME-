@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/next.css">
+</head>
+<body>
+    <!-- Seu conteúdo da página aqui (ex: divs, textos, etc.) -->
+    
+    <!-- Overlay preto para o fade-in (adicionado) -->
+    <div id="fade-overlay"></div>
+</body>
+<script>
+    // Inicia o fade-in ao carregar a página (fade-out do overlay preto)
+    window.addEventListener('load', () => {
+        const overlay = document.getElementById('fade-overlay');
+        overlay.style.opacity = '0'; // Inicia o fade-out do preto
+    });
+</script>
+</html>

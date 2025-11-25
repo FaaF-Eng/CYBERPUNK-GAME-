@@ -3,5 +3,19 @@ body {
     height: 100vh;
     overflow: hidden;
     color: white;
-    
-  }
+    user-select: none;
+}
+
+/*INDEX - DIALOGO INICIAL*/
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+}
+
+#dialogo{
+  font-weight: bold;
+}

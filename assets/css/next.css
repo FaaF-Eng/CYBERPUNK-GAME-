@@ -1,0 +1,24 @@
+html {
+    background-color: black; /* Garante que o fundo inicial seja preto */
+}
+
+body {
+    /* Seu CSS atual da nova página aqui, incluindo background desejado */
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Se necessário, para evitar scrolls durante o fade */
+    /* Exemplo: background: radial-gradient(circle, #your-color, #another-color); */
+}
+
+#fade-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    opacity: 1; /* Começa totalmente preto */
+    transition: opacity 5s ease-in-out; /* Duração do fade-out (clareando aos poucos) */
+    z-index: 9999; /* Fica por cima de tudo inicialmente */
+    pointer-events: none; /* Permite interações com o conteúdo por baixo */
+}
