@@ -6,7 +6,9 @@ body {
     user-select: none;
 }
 
-/*INDEX - DIALOGO INICIAL*/
+/*--------------------------------------------------------------
+# INDEX - DIALOGO
+--------------------------------------------------------------*/
 .container{
   display: flex;
   align-items: center;
@@ -18,4 +20,30 @@ body {
 
 #dialogo{
   font-weight: bold;
+}
+
+/*--------------------------------------------------------------
+# CONFIGURAÇÕES MODAL 
+--------------------------------------------------------------*/
+.modal-content {
+  background-color: rgb(255, 255, 255);
+  
+}
+
+.modal-header,
+.modal-body,
+.modal-footer {
+  background-color: inherit; /* mantém mesma cor interna */
+}
+
+/*Evita palavras vazando do modal*/
+#viewIncidentText {
+  word-break: break-word;      /* força quebra de palavras longas */
+  overflow-wrap: anywhere;     /* também força quebra se necessário */
+}
+.modal-body{
+  background-color: red;
+}
+.modal-header{
+  font-family: "Press Start 2P", monospace;
 }

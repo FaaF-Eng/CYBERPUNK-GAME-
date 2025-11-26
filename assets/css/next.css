@@ -37,6 +37,7 @@ html, body {
 }
 
 .coffee {
+    cursor: pointer;
     position: absolute;
     /* left e top agora setados no JS (para compensar shift inicial) */
     height: 60px;          /* tamanho fixo em pixels */
