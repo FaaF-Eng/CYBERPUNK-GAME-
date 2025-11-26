@@ -1,24 +1,56 @@
-html {
-    background-color: black; /* Garante que o fundo inicial seja preto */
+html, body {
+    margin: 0;             /* remove margens padrão do navegador */
+    padding: 0;            /* remove paddings padrão */
+    height: 100%;          /* garante que body ocupe 100% da altura */
+    overflow: hidden;      /* evita scrollbars indesejadas */
+    background-color: black;
 }
 
-body {
-    /* Seu CSS atual da nova página aqui, incluindo background desejado */
-    height: 100vh;
-    margin: 0;
-    overflow: hidden; /* Se necessário, para evitar scrolls durante o fade */
-    /* Exemplo: background: radial-gradient(circle, #your-color, #another-color); */
+.background {
+    position: fixed;       /* fixa na tela */
+    top: 0;                /* essencial para fixed cobrir do topo */
+    left: 0;               /* essencial para fixed cobrir da esquerda */
+    width: 100vw;          /* usa vw para ignorar scrollbars */
+    height: 100vh;         /* usa vh para altura total da viewport */
+    z-index: 1;           /* manda pro fundo se tiver mais conteúdo */
+    overflow: hidden;      /* essencial para o pan: esconde extras */
 }
 
-#fade-overlay {
-    position: fixed;
+.pan-container {
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: calc(100% + 20%); /* 100% + 2*maxPan (10% cada lado) */
     height: 100%;
-    background-color: rgb(255, 255, 255);
-    opacity: 1; /* Começa totalmente preto */
-    transition: opacity 5s ease-in-out; /* Duração do fade-out (clareando aos poucos) */
-    z-index: 9999; /* Fica por cima de tudo inicialmente */
-    pointer-events: none; /* Permite interações com o conteúdo por baixo */
+    transition: transform 0.2s ease-out; /* suaviza o movimento (ajuste tempo) */
+}
+
+.img-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;           /* 100% do pan-container (extra largo) */
+    height: 100%;
+    object-fit: cover;     /* cobre sem distorcer */
+    display: block;
+    margin: 0;
+}
+
+.coffee {
+    position: absolute;
+    /* left e top agora setados no JS (para compensar shift inicial) */
+    height: 60px;          /* tamanho fixo em pixels */
+    width: 60px;           /* tamanho fixo em pixels */
+    object-fit: contain;   /* mantém proporção sem distorcer */
+    z-index: 10;           /* fica por cima do BG */
+}
+.grround{
+    background-color: black;
+    position: fixed;       /* fixa na tela */
+    top: 0;                /* essencial para fixed cobrir do topo */
+    left: 0;               /* essencial para fixed cobrir da esquerda */
+    width: 100vw;          /* usa vw para ignorar scrollbars */
+    height: 100vh;         /* usa vh para altura total da viewport */
+    z-index: -1;           /* manda pro fundo se tiver mais conteúdo */
+    overflow: hidden;      /* essencial para o pan: esconde extras */
 }
