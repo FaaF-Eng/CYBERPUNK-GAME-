@@ -11,95 +11,40 @@
 </head>
 
 <body>
+    
     <div class="background">
+        <div id="coffee_drink_container"></div>
         <div id="pan-container" class="pan-container">
             <img class="img-background" src="assets/img/bg-coffee.png" alt="background">
-            <img class="coffee" src="assets/img/coffee.png" alt="coffee" onclick="drinkCoffeeModal()">
+            <img class="coffee" src="assets/img/coffee.png" alt="coffee" onclick="drinkCoffee()">
         </div>
     </div>        
     <div class="ground"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/next.js"></script>
     <!-- SCRIPT DO FADE FROM BLACK + EFEITO DE PANNING (FNAF-STYLE) + SYNC COFFEE -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Fade from black (inalterado)
-            const overlay = document.createElement('div');
-            overlay.id = 'fade-from-black';
-            overlay.style.position = 'fixed';
-            overlay.style.top = '0';
-            overlay.style.left = '0';
-            overlay.style.width = '100vw';
-            overlay.style.height = '100vh';
-            overlay.style.backgroundColor = '#000000';
-            overlay.style.opacity = '1';
-            overlay.style.transition = 'opacity 6s cubic-bezier(0.22, 0.61, 0.36, 1)'; // 6s ultra suave
-            overlay.style.zIndex = '99999';
-            overlay.style.pointerEvents = 'none';
-            document.documentElement.appendChild(overlay);
-
-            requestAnimationFrame(() => {
-                overlay.style.opacity = '0';
-            });
-
-            overlay.addEventListener('transitionend', () => {
-                overlay.remove();
-            });
-
-            // Efeito de panning FNAF-style (agora no container, para mover BG + coffee juntos)
-            const panContainer = document.getElementById('pan-container');
-            const coffee = document.querySelector('.coffee');
-            const maxPan = 10; // Limite de pan em % para cada lado (ajuste para mais/menos)
-            const initialCoffeeLeft = 650; // Valor original em px (ajuste se mudou)
-            const initialCoffeeTop = 440; // Valor original em px (para top, inalterado)
-
-            // Função para ajustar posição inicial do coffee (compensa o shift central do pan)
-            const adjustCoffeePosition = () => {
-                const viewportWidth = window.innerWidth;
-                const initialShift = (viewportWidth * (maxPan / 100));
-                coffee.style.left = `${initialCoffeeLeft + initialShift}px`;
-                coffee.style.top = `${initialCoffeeTop}px`; // Top inalterado
-            };
-
-            // Ajusta na load e centraliza o pan-container
-            adjustCoffeePosition();
-            panContainer.style.transform = `translateX(-${maxPan}%)`; // Centro inicial
-
-            // Movimento com mouse
-            document.addEventListener('mousemove', (e) => {
-                const mouseX = e.clientX / window.innerWidth; // 0 a 1
-                const panOffset = (mouseX - 0.5) * (maxPan * 2); // De -maxPan a +maxPan
-                panContainer.style.transform = `translateX(calc(-${maxPan}% - ${panOffset}%))`;
-            });
-
-            // Reset para centro ao sair da janela
-            document.addEventListener('mouseleave', () => {
-                panContainer.style.transform = `translateX(-${maxPan}%)`;
-            });
-
-            // Reajusta posição do coffee em resize (mantém responsivo)
-            window.addEventListener('resize', adjustCoffeePosition);
-        });
-    </script>
+    <script src="assets/js/movimento-tela.js"></script>
     <script src="assets/js/modal.js"></script>
-
+    
+    <!--modal-->
     <div class="modal fade" id="basicModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-        <div class="modal-header">
-            <img id="modalIcon" src="assets/img/coffee.png" alt="alert" style="height: 50px;">
-            <h5 class="modal-title">Name</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <img id="modalIcon" src="assets/img/coffee.png" alt="alert" style="height: 50px;">
+                <h5 class="modal-title">Name</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                <span id="modalEventName"></span> triggered an alert
+            </div>
+            <div class="modal-footer" style="justify-content: center;">
+                <button type="button" class="btn btn-danger" onclick="goToEventsAndTreat()" data-bs-dismiss="modal">Treat</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+            </div>
+            </div>
         </div>
-        <div class="modal-body" style="text-align: center;">
-            <span id="modalEventName"></span> triggered an alert
-        </div>
-        <div class="modal-footer" style="justify-content: center;">
-            <button type="button" class="btn btn-danger" onclick="goToEventsAndTreat()" data-bs-dismiss="modal">Treat</button>
-            <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
-        </div>
-        </div>
-    </div>
     </div>
 
 </body>

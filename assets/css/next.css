@@ -55,3 +55,22 @@ html, body {
     z-index: -1;           /* manda pro fundo se tiver mais conteúdo */
     overflow: hidden;      /* essencial para o pan: esconde extras */
 }
+
+
+
+#coffee_drink_container {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;                    /* aparece por cima de tudo */
+    pointer-events: none;             /* não bloqueia cliques no café */
+}
+
+#coffee_drink_container img {
+    max-width: 90vw;                  /* não ultrapassa a tela */
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+}
+
