@@ -4,7 +4,7 @@ const falas = [
     "Já passou da hora de você acordar...",
     "Tem café em cima do balcão",
     "...",
-    "Ainda temos muito trabalho a ser feito, não é verdade?",
+    "Ainda temos muito trabalho a fazer, não é verdade?",
 ];
 
 let indiceFala = 0;
