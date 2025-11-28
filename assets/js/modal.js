@@ -1,4 +1,5 @@
 function drinkCoffeeModal(){
+  console.log("Abriu o modal")
   window.abrirModalCoffee = function() {
   var modalEl = document.getElementById('basicModal');
   if (!modalEl) {

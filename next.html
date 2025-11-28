@@ -25,9 +25,10 @@
     <script src="assets/js/next.js"></script>
     <!-- SCRIPT DO FADE FROM BLACK + EFEITO DE PANNING (FNAF-STYLE) + SYNC COFFEE -->
     <script src="assets/js/movimento-tela.js"></script>
-    <script src="assets/js/modal.js"></script>
+    <script src="assets/js/modal.js"></script>    
+    <link rel="icon"  href="assets/img/coffee.png">
     
-    <!--modal-->
+    <!--modal dialogo do café-->
     <div class="modal fade" id="basicModal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -39,9 +40,10 @@
             <div class="modal-body" style="text-align: center;">
                 <span id="modalEventName"></span> triggered an alert
             </div>
-            <div class="modal-footer" style="justify-content: center;">
-                <button type="button" class="btn btn-danger" onclick="goToEventsAndTreat()" data-bs-dismiss="modal">Treat</button>
-                <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+            <div class="modal-footer">
+                <button type="button" class="btn-next" data-bs-dismiss="modal">
+                    NEXT →
+                </button>
             </div>
             </div>
         </div>
@@ -50,3 +52,6 @@
     <audio id="somCafe" src="assets/audio/coffee_drink.mp3" preload="auto"></audio>
 </body>
 </html>
+<script>
+    drinkCoffeeModal()
+</script>

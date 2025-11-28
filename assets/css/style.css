@@ -23,27 +23,107 @@ body {
 }
 
 /*--------------------------------------------------------------
-# CONFIGURAÇÕES MODAL 
+# MODAL CYBERPUNK TRANSPARENTE + GLITCH + NEON
 --------------------------------------------------------------*/
+.modal.fade .modal-dialog {
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+    transform: translateY(50px);
+    opacity: 0;
+}
+.modal.show .modal-dialog {
+    transform: translateY(0);
+    opacity: 1;
+}
+
 .modal-content {
-  background-color: rgb(255, 255, 255);
-  
+    background: rgba(10, 10, 30, 0.85) !important;     /* fundo quase preto com transparência */
+    border: 2px solid #00ffff;                         /* borda neon ciano */
+    border-radius: 12px;
+    box-shadow: 
+        0 0 30px rgba(0, 255, 255, 0.6),
+        0 0 60px rgba(0, 255, 255, 0.3),
+        inset 0 0 20px rgba(0, 255, 255, 0.1);
+    backdrop-filter: blur(10px);                       
+    color: #00ffff;
+    font-family: "Press Start 2P", monospace;
+    animation: glitch-border 4s infinite linear alternate-reverse;
+    overflow: hidden;
+    position: relative;
 }
 
-.modal-header,
-.modal-body,
+/* Efeito glitch sutil na borda */
+@keyframes glitch-border {
+    0%, 100% { box-shadow: 0 0 30px rgba(0, 255, 255, 0.6), 0 0 60px rgba(0, 255, 255, 0.3); }
+    50%      { box-shadow: 0 0 40px rgba(255, 0, 255, 0.8), 0 0 80px rgba(255, 0, 192, 0.5); }
+}
+
+/* Header com linha neon embaixo */
+.modal-header {
+    background: transparent;
+    border-bottom: 1px dashed #00ffff;
+    padding: 1.5rem;
+    text-shadow: 0 0 10px #00ffff;
+}
+
+/* Corpo do modal */
+.modal-body {
+    background: transparent;
+    padding: 2rem;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-shadow: 0 0 8px #00ffff;
+}
+
+/* Footer com botão NEXT foda */
 .modal-footer {
-  background-color: inherit; /* mantém mesma cor interna */
+    background: transparent;
+    border-top: 1px dashed #00ffff;
+    padding: 1.5rem;
+    justify-content: center !important;
+    gap: 20px;
 }
 
-/*Evita palavras vazando do modal*/
-#viewIncidentText {
-  word-break: break-word;      /* força quebra de palavras longas */
-  overflow-wrap: anywhere;     /* também força quebra se necessário */
+/* Botão NEXT cyberpunk */
+.btn-next {
+    background: transparent;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    padding: 12px 40px;
+    font-family: "Press Start 2P", monospace;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
 }
-.modal-body{
-  background-color: red;
+
+.btn-next:hover {
+    background: #00ffff;
+    color: #000;
+    box-shadow: 0 0 40px #00ffff, inset 0 0 20px rgba(0, 0, 0, 0.8);
+    transform: translateY(-3px);
+    text-shadow: none;
 }
-.modal-header{
-  font-family: "Press Start 2P", monospace;
+
+/* Efeito scanline/glitch dentro do botão */
+.btn-next::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.7s;
+}
+.btn-next:hover::before {
+    left: 100%;
+}
+
+/* Botão OK e Treat (mantém o estilo antigo, mas melhora) */
+.btn-success, .btn-danger {
+    font-family: "Press Start 2P", monospace;
+    text-transform: uppercase;
 }

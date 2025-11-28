@@ -25,6 +25,10 @@ function drinkCoffee() {
     setTimeout(() => {
         container.innerHTML = "";  // limpa a imagem grande
     }, 4000); // 5 segundos
+
+    setTimeout(() => {
+        drinkCoffeeModal();
+    }, 8000)
 }
 
 function tocarSom() {
